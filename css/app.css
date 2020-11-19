@@ -1,0 +1,415 @@
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	box-sizing: inherit;
+}
+html {
+	box-sizing: border-box;
+	font-size: 62.5%; /*10px/16px * 100; so the pixel sizing is easier and in 10's*/
+
+	}
+body{
+	font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+}
+
+/*header section starts here --FLEXBOX used*/
+header{
+	color: #fff;
+	background-color: #24292e;
+	padding: 1.6rem .6rem;
+	font-size: 1.8rem;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+header > div {
+	min-width: 4.2rem;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+input[type=text]{
+	margin: 0 1rem 0 2rem;
+	border: 1px solid #444d56;
+	border-radius: 5px;
+	padding: .75rem .5rem;
+	text-indent: 1rem;
+	background: none;
+	font-size: inherit;
+
+	width: 34rem;
+	-webkit-transition: width 0.3s ease-in-out;
+	transition: width 0.3s ease-in-out;
+}
+/* When the input field gets focus, change its width to 600pixela */
+input[type=text]:focus {
+  	width: 60rem;
+  	outline: none;
+	background: #fff;
+	z-index: 2;
+}
+a{
+	text-decoration: none;
+	color: inherit;
+}
+ul{
+	padding: 0;
+	margin: 0;
+}
+li{
+	text-decoration: none;
+	list-style-type: none;
+	display: flex;
+	align-items: center;
+}
+button{
+	/*min-height: 3.2rem;*/
+	height: 3.2rem;
+	background: #fafbfc;
+	box-shadow: 0px 1px 1px 0px #eee;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
+.logo-area{
+	width: auto;
+}
+.nav-area{
+	display: none;
+}
+.nav-area .slash{
+	border: 1px solid #444d56;
+	border-radius: 5px;
+	padding: .2rem .8rem;
+	display: flex;
+	margin: 0 2rem 0 -4.5rem;
+}
+.slash span{
+	font-weight: 400;
+	color: #777;
+	margin: 0;
+	font-size: 1.7rem;
+}
+.nav-area a{
+	margin: 0 1rem;
+	font-weight: bold;
+}
+a:hover{
+	color: #ccc;
+	cursor: pointer;
+}
+.notification{
+	margin-left: 0;
+}
+.notif{
+	position: absolute;
+	left:0;
+	top: 0;
+	width: 1rem;
+	border-radius: 50%;
+	background-color: #001;
+}
+.add-menu{
+	display: flex;
+	align-items: center;
+	margin: 0 .5rem;
+}
+.profile{
+	display: flex;
+	align-items: center;
+	margin: 0 .5rem;
+}
+.profile__pic{
+	border-radius: 50%;
+	width: 2.5rem;
+	height: 2.5rem;
+	overflow: hidden;
+}
+.profile__pic img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.octicon {
+	fill: currentColor;
+	display: inline-block;
+}
+.octicon:hover{
+	fill: #ccc;
+	cursor: pointer;
+}
+.material-icons{
+	font-size: 2.5rem;
+}
+.material-icons:hover{
+	color: #ccc;
+	cursor: pointer;
+}
+.add-menu:hover{
+	color: #ccc;
+}
+.profile:hover{
+	color: #ccc;
+}
+
+/*Header section ends here*/
+
+/*
+MAIN CONTENT BELOW
+Grid used for content
+*/
+.content{
+	display: grid;
+	width: 100vw;
+	grid-template-rows: repeat(3, 1fr);
+}
+/*Tab area and search begin here*/
+.tab-area{
+	grid-row: 2 / 3; 
+	height: 20rem;
+	background-color: red;
+}
+
+
+/*Tab area and search end here*/
+
+
+/*Profile Overview area begins here*/
+
+.profile-overview{
+	grid-row: 1 / 2;
+	padding: .5rem 1.5rem;
+	font-size: 1.6rem;
+
+	display: grid;
+	grid-gap: 1.2rem;
+	grid-template-columns: repeat(3, 7rem) 1fr;
+	grid-template-rows: repeat(6, max-content);
+	/*align-items: center;*/
+}
+.profile-overview .profile__pic{
+	width: 5.7rem;
+	height: 5.7rem;
+	border:1px solid #ddd;
+
+	grid-column: 1 / 2;
+}
+.status {
+	grid-row: 2 / 3;
+	grid-column: 1 / -1;
+
+	color: #666;
+	font-size: 1.3rem;
+	text-indent: 1rem;
+	display: flex;
+	background: none;
+	box-shadow: none;
+	align-items: center;
+	padding: 0 1rem;
+}
+.status .octicon-smiley{
+	fill: currentColor;
+}
+.profile__name{
+	grid-row: 1 / 2;
+	grid-column: 2 / -1;
+	margin-bottom: 2rem;
+}
+.profile__name h1{
+	font-size: 2.6rem;
+	color: #222;
+}
+.profile__name h2{
+	font-weight: 400;
+	color: #666;
+	font-size: 2rem;
+}
+
+.profile__info{
+	grid-column: 1 / -1;
+	line-height: 1.3;
+}
+.profile__edit{
+	grid-column: 1 / -1;
+	font-size: 1.4rem;
+	
+	margin: .8rem 0;
+}
+.connections{
+	grid-row: 6 / 7;
+	grid-column: 1 / -1;
+
+	display: flex;
+}
+.connections li{
+	font-size: 1.4rem;
+	color: #666;
+}
+.connections li:not(:first-child){
+	margin-right: .5rem; 
+}
+.connections p{
+	margin-left: .5rem;
+	color: #6a6a6a;
+}
+.connections span{
+	color: #333;
+	font-weight: bold;
+}
+.profile__details{
+	grid-row: 5 / 6;
+	grid-column: 1 / -1;
+	margin-top: -1.5rem;
+}
+.profile__details li{
+	font-size: 1.4rem;
+	color: #666;
+}
+.profile__details span{
+	color: #24292e;
+	margin-left: .5rem;
+}
+
+/*Profile overview are ends here*/
+
+.repos{
+	grid-row: 3 / -1; 
+	height: 20rem;
+	background-color: yellow;
+}
+
+
+.hidden-on-mobile{
+	display: none;
+}
+.hiddeny-on-mobile{
+	visibility: hidden;
+}
+
+@media only screen and (min-width: 800px) {
+	/*content on desktop begins here*/
+	html {
+		font-size: 50%; //8px/16px
+	}
+	header{
+		padding: 1.9rem 4rem;
+	}
+	button{
+		height: 4rem;
+	}
+	.hidden-on-mobile{
+		display: flex;
+	}
+	.hiddeny-on-mobile{
+		visibility: visible;
+	}
+	.menu{
+		display: none;
+	}
+	.nav-area{
+		display: flex;
+		align-items: center;
+	}
+	.notification{
+		margin-left: auto;
+	}
+	/*content on desktop ends here*/
+	
+	/*Content on desktop begins here*/
+	.content{
+		display: grid;
+		width: 100vw;
+		grid-template-columns: 29vw 1fr;
+	}
+	.tab-area{
+		grid-column: 1 / -1;
+		grid-row: 1 / 2; 
+		height: 20rem;
+		background-color: red;
+	}
+	.profile-overview{
+		grid-column: 1 / 2;
+		grid-row: 2 / -1; 
+
+		margin-top: -15rem;
+		padding: 0 2.5rem;
+		font-size: 2rem;
+		color: #222;
+	}
+	.profile-overview .profile__pic{
+		width: 30rem;
+		height: 30rem;
+
+		grid-row: 1 / 2;
+		grid-column: 1 / -1;
+	}
+	.status {
+		grid-row: 1 / 2;
+		grid-column: 4;
+
+		width: 5rem;
+		height: 5rem;
+		border-radius: 50%;
+		background-color: #fff;
+		justify-content: center;
+		align-self: flex-end;
+		transform: translateY(-3rem);
+		outline: none;
+	}
+	.status span {
+		display: none;
+	}
+	.profile__name{
+		grid-row: 2 / 3;
+		grid-column: 1 / -1;
+
+		margin-bottom: 1rem;
+	}
+	.profile__name h1{
+		font-size: 3.2rem;
+	}
+	.profile__name h2{
+		font-weight: 400;
+		color: #666;
+		font-size: 2.5rem;
+	}
+
+	.profile__info{
+		grid-column: 1 / -1;
+	}
+	.profile__edit{
+		grid-column: 1 / -1;
+		font-size: 1.8rem;
+		
+		margin: .8rem 0;
+	}
+	.connections{
+		grid-row: 5 / 6;
+	}
+	.connections li{
+		font-size: 1.8rem;
+	}
+	.connections li:not(:first-child){
+		margin-right: .5rem; 
+	}
+	.connections p{
+		margin-left: .5rem;
+	}
+	.profile__details{
+		grid-row: 6 / 7;
+		margin-top: 1rem;
+	}
+	.profile__details li{
+	    font-size: 1.8rem;
+	    margin-bottom: 1rem;
+	}
+
+	.repos{
+		grid-column: 2 / -1;
+		grid-row: 2 / -1;
+		background-color: yellow;
+	}
+}
