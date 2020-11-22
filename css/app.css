@@ -12,6 +12,7 @@ html {
 	}
 body{
 	font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+	overflow-x: hidden;
 }
 
 /*header section starts here --FLEXBOX used*/
@@ -40,19 +41,16 @@ input[type=text]{
 	text-indent: 1rem;
 	background: none;
 	font-size: inherit;
-
-	width: 34rem;
-	-webkit-transition: width 0.3s ease-in-out;
-	transition: width 0.3s ease-in-out;
 }
 /* When the input field gets focus, change its width to 600pixela */
 input[type=text]:focus {
-  	width: 60rem;
   	outline: none;
 	background: #fff;
 	z-index: 2;
 }
-a{
+a,
+a:focus,
+a:visited{
 	text-decoration: none;
 	color: inherit;
 }
@@ -74,11 +72,23 @@ button{
 	border: 1px solid #ddd;
 	border-radius: 5px;
 }
+button:hover{
+	cursor: pointer;
+	background: #f6f5f4;
+}
 .logo-area{
 	width: auto;
 }
 .nav-area{
 	display: none;
+}
+.nav-area input{
+	width: 34rem;
+	-webkit-transition: width 0.3s ease-in-out;
+	transition: width 0.3s ease-in-out;
+}
+.nav-area input:focus{
+	width: 60rem;
 }
 .nav-area .slash{
 	border: 1px solid #444d56;
@@ -165,12 +175,92 @@ Grid used for content
 	display: grid;
 	width: 100vw;
 	grid-template-rows: repeat(3, 1fr);
+	color: #222;
+	font-size: 1.6rem;
 }
 /*Tab area and search begin here*/
 .tab-area{
 	grid-row: 2 / 3; 
-	height: 20rem;
-	background-color: red;
+	margin-top: 3rem;
+	overflow: hidden;
+}
+.tab-list{
+	width: 100vw;
+	overflow-x: auto;
+	border-bottom: 1px solid #eee;
+	font-size: 1.4rem;
+}
+.tab-list ul{
+	display: flex;
+	padding: 0 2rem;
+}
+.tab-list li{
+	padding: 1rem 1.3rem; 
+}
+.tab-list li:hover{
+	border-bottom: 2px solid #ccc;
+	cursor: pointer;
+}
+.tab-list .active{
+	font-weight: bold;
+	border-bottom: 2px solid #f9826c;
+}
+.tab-list .active span{
+	background-color: rgba(209, 213, 218, .5);
+	border-radius: 1rem;
+	line-height: 1.6;
+	padding: 0 .6rem;
+	margin-left: 1rem;
+	font-weight: 400;
+	font-size: 1.2rem;
+}
+
+.tab-list li .octicon {
+	margin-right: 1rem;
+	fill: #999;
+}
+.tab-list .active .octicon{
+	fill: #222;
+}
+.tab-list li .octicon:hover {
+	fill: #999;
+}
+.search-area{
+	display: flex;
+	flex-direction: column;
+	padding: 2rem;
+}
+.search-area input{
+	margin: 0;
+	margin-bottom: 2rem;
+	border: 1px solid #ccc;
+}
+.filters{
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+.filters button{
+	display: flex;
+	align-items: center;
+	padding: 0 1rem 0 1.5rem;
+}
+.filters button .label{
+	color: #666;
+}
+.filters button .value{
+	margin-left: .5rem;
+}
+.filters button:last-child {
+	padding-right: 1.8rem;
+	background-color: #2ea44f;
+	color: #fff;
+}
+#new-repo:hover{
+	background-color: #1a923c;
+}
+.filters button .material-icons{
+	font-size: 2rem;
 }
 
 
@@ -182,7 +272,6 @@ Grid used for content
 .profile-overview{
 	grid-row: 1 / 2;
 	padding: .5rem 1.5rem;
-	font-size: 1.6rem;
 
 	display: grid;
 	grid-gap: 1.2rem;
@@ -220,7 +309,6 @@ Grid used for content
 }
 .profile__name h1{
 	font-size: 2.6rem;
-	color: #222;
 }
 .profile__name h2{
 	font-weight: 400;
@@ -277,9 +365,33 @@ Grid used for content
 
 .repos{
 	grid-row: 3 / -1; 
-	height: 20rem;
-	background-color: yellow;
 }
+
+
+/*footer area begins here*/
+
+footer{
+	margin: 4rem 2rem 1rem 2rem;
+	border-top: 1px solid #eee;
+	padding: 3rem 0;
+	font-size: 1.2rem;
+	height: 13rem;
+}
+footer ul{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+footer ul li{
+	max-width: 15rem;
+	padding: .2rem .5rem;
+	color: #0366d6;
+}
+footer ul li:first-child{
+	color: #586069;
+}
+
+/*footer area ends here*/
 
 
 .hidden-on-mobile{
@@ -322,26 +434,64 @@ Grid used for content
 	.content{
 		display: grid;
 		width: 100vw;
-		grid-template-columns: 29vw 1fr;
+		grid-template-columns: 26vw 1fr;
+		grid-template-rows: repeat(3, max-content);
 	}
+		/*Tab desktop area and search begin here*/
 	.tab-area{
 		grid-column: 1 / -1;
-		grid-row: 1 / 2; 
-		height: 20rem;
-		background-color: red;
+		grid-row: 1 / 2;
 	}
+	.tab-list{
+		display: flex;
+		font-size: 1.8rem;
+    	height: 6rem;
+	}
+	.tab-list ul{
+		margin-left: 24.5vw;
+	}
+	.tab-list li{
+		padding: .3rem 1rem .3rem 3rem;
+	}
+	.tab-list .active span{
+		font-size: 1.6rem;
+	}
+	.search-area{
+		margin-left: 26vw;
+		flex-direction: row;
+		align-items: center;
+		align-content: center;
+		padding: 2.5rem 1rem;
+	}
+	.search-area input{
+		height: 4rem;
+		width: 160rem;
+		margin-bottom: 0;
+	}
+	.filters{
+		display: flex;
+		justify-content: flex-start;
+	}
+	.filters button{
+		margin-left: 2rem;
+	}
+
+
+	/*Tab desktop area and search end here*/
+
 	.profile-overview{
 		grid-column: 1 / 2;
 		grid-row: 2 / -1; 
 
-		margin-top: -15rem;
+		margin-top: -13rem;
 		padding: 0 2.5rem;
+		padding-left: 5rem;
 		font-size: 2rem;
 		color: #222;
 	}
 	.profile-overview .profile__pic{
-		width: 30rem;
-		height: 30rem;
+		width: 35rem;
+		height: 35rem;
 
 		grid-row: 1 / 2;
 		grid-column: 1 / -1;
@@ -356,7 +506,7 @@ Grid used for content
 		background-color: #fff;
 		justify-content: center;
 		align-self: flex-end;
-		transform: translateY(-3rem);
+		transform: translate(5.2rem, -4.5rem);
 		outline: none;
 	}
 	.status span {
@@ -410,6 +560,36 @@ Grid used for content
 	.repos{
 		grid-column: 2 / -1;
 		grid-row: 2 / -1;
-		background-color: yellow;
 	}
+
+	/*footer desktop area begins here*/
+
+	footer{
+		margin: 4rem 2rem 1rem 2rem;
+		padding: 4rem 1.5rem;
+		font-size: 1.6rem;
+		height: 13rem;
+	}
+	footer ul{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	footer ul li{
+		max-width: 25rem;
+		padding: .2rem 0;
+		color: #0366d6;
+	}
+	footer ul li:first-child{
+		color: #586069;
+	}
+	footer ul li .octicon {
+		fill: #ccc;
+	}
+	footer ul li span{
+		margin-left: 2rem;
+	}
+
+	/*footer desktop area ends here*/
+
 }
