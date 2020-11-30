@@ -365,26 +365,46 @@ Grid used for content
 
 .repos{
 	grid-row: 3 / -1; 
+	padding: 0 2rem 1rem 2rem;
 }
 .repos .repo{
 	display: flex;
 	justify-content: space-between;
 	color: #586069;
+	border-top: 1px solid #ddd;
+	padding: 3rem 0;
 }
-.repo__details .repo_name{
+.repos .repo:last-child{
+	border-bottom: 1px solid #ddd;
+}
+.repo__details .repo__name{
 	color: #0366d6;
+	font-size: 2.5rem;
 	font-weight: bold;
+}
+.repo__description{
+	margin: 1rem 0;
 }
 .repo__language{
 	display: flex;
 	align-items: center;
+	margin-top: 2rem;
 }
 .repo__language .circle{
-	width: 3rem;
+	width: 1.5rem;
+	height: 1.5rem;
 	border-radius: 50%;
-	background-color: #4F5D95;
+	background-color: #563d7c;
 }
-
+.star button{
+	padding: 0 2rem;
+	display: flex;
+	align-items: center;
+	color: #586069;
+}
+.repo span{
+	margin-left: .5rem;
+}
 
 /*footer area begins here*/
 
@@ -578,7 +598,15 @@ footer ul li:first-child{
 	.repos{
 		grid-column: 2 / -1;
 		grid-row: 2 / -1;
+		padding: 0 11rem 2rem 1rem;
 	}
+	.repo__description{
+		margin: 1.5rem 0;
+	}
+	.repo__language{
+		margin-top: 3rem;
+	}
+
 
 	/*footer desktop area begins here*/
 
