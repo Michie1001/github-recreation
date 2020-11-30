@@ -366,6 +366,24 @@ Grid used for content
 .repos{
 	grid-row: 3 / -1; 
 }
+.repos .repo{
+	display: flex;
+	justify-content: space-between;
+	color: #586069;
+}
+.repo__details .repo_name{
+	color: #0366d6;
+	font-weight: bold;
+}
+.repo__language{
+	display: flex;
+	align-items: center;
+}
+.repo__language .circle{
+	width: 3rem;
+	border-radius: 50%;
+	background-color: #4F5D95;
+}
 
 
 /*footer area begins here*/
